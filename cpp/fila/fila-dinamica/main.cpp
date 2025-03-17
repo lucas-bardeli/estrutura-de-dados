@@ -1,15 +1,17 @@
 #include <iostream>
 #include <locale>
-#include "FilaEstatica.h"
+#include "fila-dinamica.h"
 
 using namespace std;
 
 char menuInicial() {
     char menu;
-    cout <<"\n --------- Menu --------\n"
+    cout << "\n --------- Menu --------\n"
             "1 - para inserir aluno na fila\n"
             "2 - para remover um aluno da fila\n"
             "3 - exibir os alunos cadastrados\n"
+            "4 - consultar primeiro aluno.\n"
+            "5 - consultar número de alunos cadastrados.\n"
             "--> ";
     fflush(stdin);
     cin >> menu;
@@ -18,7 +20,7 @@ char menuInicial() {
 
 char menuSaida() {
     char menu;
-    cout<<"\nDeseja sair do programa? S para sim "
+    cout << "\nDeseja sair do programa? S para sim "
             "e qualquer tecla para continuar...\n--> ";
     cin >> menu;
     menu = toupper(menu);
@@ -28,22 +30,17 @@ char menuSaida() {
 int main() {
     setlocale(LC_ALL, "Portuguese");
 
-    char menu;
-    int x;
-    Fila *fila;
     Aluno alunoN;
-    fila = criarFila();
+    char menu;
+    int x, tam;
+    Fila* fila = criarFila();
 
     do {
         menu = menuInicial();
         switch(menu) {
             case '1':
-                if (fila->qtd == MAX)
-                    cout << "\nFila cheia, impossível inserir!" << endl;
-                else {
-                    cadastrarAluno(&alunoN);
-                    x = inserirFila(fila,&alunoN);
-                }
+                cadastrarAluno(&alunoN);
+                x = inserirFila (fila, &alunoN);
             break;
             case '2':
                 x = removerFila(fila);
@@ -51,15 +48,22 @@ int main() {
             case '3':
                 exibirFila(fila);
             break;
+            case '4':
+                consultarFila(fila, &alunoN);
+            break;
+            case '5':
+                tam = tamanhoFila(fila);
+            break;
             default:
-                cout << "\nOpção inválida!";
+                cout << "\nOpção inválida!" << endl;
+            break;
         }
         menu = menuSaida();
-        system("cls");
+        system("clear||cls");
 
     } while(menu != 'S');
 
-    apagarFila(fila);
+    liberarFila(fila);
 
-   return 0;
+    return 0;
 }

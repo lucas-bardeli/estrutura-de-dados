@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ListaDuplaEncadeada.h"
+#include "lista-dupla-encadeada.h"
 #include "menu.h"
 
 using namespace std;
@@ -9,12 +9,12 @@ void cadastrarAluno(Aluno *alunoN) {
     fflush(stdin);
     cin.getline(alunoN->nome, sizeof(alunoN->nome));
 
-    //cout<<"Matrícula do aluno! ";
+    // cout << "Matrícula do aluno! ";
     alunoN->matricula = verificaNumInt();
-    //cin >> alunoN->matricula;
+    // cin >> alunoN->matricula;
     fflush(stdin);
 
-    // cout<<"Nota do aluno! ";
+    // cout << "Nota do aluno! ";
     alunoN->nota = verificaNumReal();
     //cin >> alunoN->nota;
     fflush(stdin);
@@ -24,7 +24,7 @@ Lista* criarLista() {
     //ponteiro que irá apontar para uma estrutura Lista (que já é um ponteiro para struct NODE)
     Lista *inicioLista;
     inicioLista = new Lista; // alocação dinâmica da variável inicioLista
-    //Se a lista (inicioLista) foi alocada corretamente, ela apontará para NULO
+    //se a lista (inicioLista) foi alocada corretamente, ela apontará para NULO
     if (inicioLista != nullptr) {
         *inicioLista = nullptr;
         cout << "\nLista Criada com sucesso!" << endl;

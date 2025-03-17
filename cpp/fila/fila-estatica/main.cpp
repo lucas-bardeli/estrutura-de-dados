@@ -1,15 +1,15 @@
 #include <iostream>
 #include <locale>
-#include "PilhaEstatica.h"
+#include "fila-estatica.h"
 
 using namespace std;
 
 char menuInicial() {
     char menu;
-    cout << "\n --------- Menu --------\n"
-            "1 - para inserir aluno na pilha\n"
-            "2 - para remover um aluno da pilha\n"
-            "3 - exibir o topo da pilha\n"
+    cout <<"\n --------- Menu --------\n"
+            "1 - para inserir aluno na fila\n"
+            "2 - para remover um aluno da fila\n"
+            "3 - exibir os alunos cadastrados\n"
             "--> ";
     fflush(stdin);
     cin >> menu;
@@ -18,7 +18,7 @@ char menuInicial() {
 
 char menuSaida() {
     char menu;
-    cout << "\nDeseja sair do programa? S para sim "
+    cout<<"\nDeseja sair do programa? S para sim "
             "e qualquer tecla para continuar...\n--> ";
     cin >> menu;
     menu = toupper(menu);
@@ -29,37 +29,37 @@ int main() {
     setlocale(LC_ALL, "Portuguese");
 
     char menu;
-    Pilha *pilha;
+    int x;
+    Fila *fila;
     Aluno alunoN;
-    pilha = criarPilha();
+    fila = criarFila();
 
     do {
         menu = menuInicial();
         switch(menu) {
             case '1':
-                if (pilha->qtd == MAX)
-                    cout << "\nPilha cheia, impossível inserir!" << endl;
+                if (fila->qtd == MAX)
+                    cout << "\nFila cheia, impossível inserir!" << endl;
                 else {
                     cadastrarAluno(&alunoN);
-                    inserirPilha(pilha,&alunoN);
+                    x = inserirFila(fila,&alunoN);
                 }
             break;
             case '2':
-                removerPilha(pilha);
+                x = removerFila(fila);
             break;
             case '3':
-                exibirTopo(pilha);
+                exibirFila(fila);
             break;
             default:
-                cout << "\nOpção inválida!" << endl;
-            break;
+                cout << "\nOpção inválida!";
         }
         menu = menuSaida();
         system("cls");
 
     } while(menu != 'S');
 
-    apagarPilha(pilha);
+    apagarFila(fila);
 
-    return 0;
+   return 0;
 }

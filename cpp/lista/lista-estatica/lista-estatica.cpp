@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ListaEstatica.h"
+#include "lista-estatica.h"
 
 using namespace std;
 
@@ -7,7 +7,7 @@ using namespace std;
 Lista* criarLista() {
     Lista *lista = new Lista;
     if (!lista) {
-        cout << "Erro de alocação !" << endl;
+        cout << "Erro de alocação!" << endl;
         exit(1);
     }
     lista->qtd = 0;
@@ -81,7 +81,7 @@ int inserirOrdenado(Lista *lista, Aluno *alunoN) {
 
 void exibirLista (Lista *lista) {
     if (listaVazia(lista) == 1)
-        cout << "Não há cadastro de alunos !" << endl;
+        cout << "Não há cadastro de alunos!" << endl;
     else {
         for (int i=0; i < lista->qtd; i++) {
             cout << i+1 << "º Cadastro:" << endl;
@@ -107,13 +107,13 @@ void cadastrarAluno (Aluno *alunoN) {
 void consultarAluno (Lista *lista, int matA) {
     int i=0;
     if (listaVazia(lista) == 1)
-        cout << "Não há cadastro de alunos !" << endl;
+        cout << "Não há cadastro de alunos!" << endl;
     else {
         for (i=0; i < lista->qtd; ) {
             if (lista->aluno[i].matricula != matA)
                 i++;
             else {
-                cout << "Aluno encontrado !" << endl;
+                cout << "Aluno encontrado!" << endl;
                 cout << i+1 << "º Cadastro:" << endl;
                 cout << "Nome: " << lista->aluno[i].nome << endl;
                 cout << "Matrícula: " << lista->aluno[i].matricula << endl;
@@ -137,7 +137,7 @@ void consultarAluno (Lista *lista, int matA) {
         */
 
         if (i == lista->qtd)
-            cout << "Matrícula " << matA << " não encontrada." << endl;
+            cout << "Matrícula " << matA << " não encontrada!" << endl;
     }
 }
 

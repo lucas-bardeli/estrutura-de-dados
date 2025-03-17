@@ -1,6 +1,6 @@
 #include <iostream>
 #include <locale>
-#include "ListaSimplesEncadeada.h"
+#include "lista-simples-encadeada.h"
 #include "menu.h"
 
 using namespace std;

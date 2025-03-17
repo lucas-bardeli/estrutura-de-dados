@@ -1,5 +1,5 @@
-#ifndef FILADINAMICA_H_INCLUDED
-#define FILADINAMICA_H_INCLUDED
+#ifndef FILA-DINAMICA_H_INCLUDED
+#define FILA-DINAMICA_H_INCLUDED
 
 struct ALUNO {
     int matricula;
@@ -34,4 +34,4 @@ int filaVazia(Fila* fila);
 int exibirFila(Fila* fila);
 void cadastrarAluno(Aluno *alunoN);
 
-#endif // FILADINAMICA_H_INCLUDED
+#endif // FILA-DINAMICA_H_INCLUDED

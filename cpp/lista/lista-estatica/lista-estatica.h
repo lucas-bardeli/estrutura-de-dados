@@ -1,5 +1,5 @@
-#ifndef LISTA_H_INCLUDED
-#define LISTA_H_INCLUDED
+#ifndef LISTA-ESTATICA_H_INCLUDED
+#define LISTA-ESTATICA_H_INCLUDED
 #define MAX 5
 
 struct ALUNO {
@@ -25,12 +25,12 @@ int inserirFim(Lista *lista, Aluno *alunoN);
 int inserirInicio(Lista *lista, Aluno *alunoN);
 int inserirOrdenado(Lista *lista, Aluno *alunoN);
 
-void exibirLista (Lista *lista);
-void cadastrarAluno (Aluno *alunoN);
-void consultarAluno (Lista *lista, int matA);
+void exibirLista(Lista *lista);
+void cadastrarAluno(Aluno *alunoN);
+void consultarAluno(Lista *lista, int matA);
 
-int removerFinal (Lista *lista);
-int removerInicio (Lista *lista);
-int removerItem (Lista *lista, int matA);
+int removerFinal(Lista *lista);
+int removerInicio(Lista *lista);
+int removerItem(Lista *lista, int matA);
 
-#endif // LISTA_H_INCLUDED
+#endif // LISTA-ESTATICA_H_INCLUDED

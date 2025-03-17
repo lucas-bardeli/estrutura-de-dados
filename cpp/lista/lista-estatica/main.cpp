@@ -1,5 +1,5 @@
 #include <iostream>
-#include "ListaEstatica.h"
+#include "lista-estatica.h"
 #include <locale>
 
 using namespace std;

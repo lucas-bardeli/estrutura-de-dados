@@ -1,5 +1,5 @@
 #include <iostream>
-#include "PilhaEstatica.h"
+#include "pilha-estatica.h"
 
 using namespace std;
 

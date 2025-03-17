@@ -1,5 +1,5 @@
-#ifndef PILHAESTATICA_H_INCLUDED
-#define PILHAESTATICA_H_INCLUDED
+#ifndef PILHA-ESTATICA_H_INCLUDED
+#define PILHA-ESTATICA_H_INCLUDED
 #define MAX 4
 
 struct ALUNO {
@@ -27,4 +27,4 @@ int removerPilha(Pilha *pilha);
 void exibirTopo(Pilha *pilha);
 void cadastrarAluno(Aluno *alunoN);
 
-#endif // PILHAESTATICA_H_INCLUDED
+#endif // PILHA-ESTATICA_H_INCLUDED
