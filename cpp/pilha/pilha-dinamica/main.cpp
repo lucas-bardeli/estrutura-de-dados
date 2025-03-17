@@ -1,6 +1,6 @@
 #include <iostream>
 #include <locale>
-#include "PilhaDinamica.h"
+#include "pilha-dinamica.h"
 
 using namespace std;
 

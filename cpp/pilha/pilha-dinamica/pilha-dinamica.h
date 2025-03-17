@@ -1,5 +1,5 @@
-#ifndef PILHADINAMICA_H_INCLUDED
-#define PILHADINAMICA_H_INCLUDED
+#ifndef PILHA-DINAMICA_H_INCLUDED
+#define PILHA-DINAMICA_H_INCLUDED
 
 struct ALUNO {
     int matricula;
@@ -24,4 +24,4 @@ int removerPilha(Pilha* topo);
 int exibirTopo(Pilha* topo);
 void cadastrarAluno(Aluno *alunoN);
 
-#endif // PILHADINAMICA_H_INCLUDED
+#endif // PILHA-DINAMICA_H_INCLUDED

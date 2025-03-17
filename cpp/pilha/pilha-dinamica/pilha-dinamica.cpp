@@ -1,5 +1,5 @@
 #include <iostream>
-#include "PilhaDinamica.h"
+#include "pilha-dinamica.h"
 
 using namespace std;
 
