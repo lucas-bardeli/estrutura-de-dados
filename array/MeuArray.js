@@ -1,9 +1,7 @@
 
 class MeuArray {
   // Usamos uma lista para armazenar os itens do array
-  constructor() {
-    this.itens = []
-  }
+  #itens = []
 
   // Mantemos o controle do tamanho do array
   #tamanho = 0
@@ -11,7 +9,7 @@ class MeuArray {
   // Adiciona um elemento no final do array
   adicionar(elemento) {
     // Insere o elemento na posição atual do tamanho
-    this.itens[this.#tamanho] = elemento
+    this.#itens[this.#tamanho] = elemento
 
     // Incrementa o tamanho
     this.#tamanho++
@@ -25,15 +23,15 @@ class MeuArray {
     }
     
     // Armazena o último item
-    const ultimoItem = this.itens[this.#tamanho - 1]
+    const ultimoItem = this.#itens[this.#tamanho - 1]
 
     // Remove o último item do array
-    delete this.itens[this.#tamanho - 1]
+    delete this.#itens[this.#tamanho - 1]
 
     // Decrementa o tamanho
     this.#tamanho--
 
-    return ultimoItem // Retorna o item devolvido
+    return ultimoItem // Retorna o item removido
   }
 
   // Acessa o elemento em um índice específico
@@ -44,7 +42,12 @@ class MeuArray {
     }
 
     // Retorna o item no índice solicitado
-    return this.itens[indice]
+    return this.#itens[indice]
+  }
+
+  // Mostra os itens do array em um console.table()
+  mostrarItens() {
+    console.table(this.#itens)
   }
 
   // Retorna o tamanho do array
@@ -56,15 +59,37 @@ class MeuArray {
   // Remove todos os elementos do array
   limpar() {
     // Limpa o objeto
-    this.itens = []
+    this.#itens = []
 
     // Reinicializa o tamanho
     this.#tamanho = 0
   }
 
-  editar(indice, novoValor) {}
+  // Edita o elemento em um índice específico
+  editar(indice, novoValor) {
+    if (indice < 0 || indice >= this.#tamanho) {
+      // Se o índice estiver fora do alcance retorna undefined
+      return undefined
+    }
+    
+    // Armazena o item editado
+    const itemEditado = this.#itens[indice]
 
-  obterIndice(elemento) {}
+    // Atribui o novo valor
+    this.#itens[indice] = novoValor
+
+    return itemEditado // Retorna o item editado
+  }
+
+  obterIndice(elemento) {
+    // Percorre o array
+    for (let i = 0; i <= this.#tamanho; i++) {
+      // Verifica se o item é igual ao parâmetro
+      if (this.#itens[i] === elemento) {
+        return i
+      }
+    }
+  }
 }
 
 module.exports = MeuArray
