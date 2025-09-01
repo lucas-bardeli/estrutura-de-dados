@@ -1,5 +1,5 @@
 
-// Crie uma classe ContaBancaria em ContaBancaria.js com atributo privado saldo (use convensão _saldo como privado).
+// Crie uma classe ContaBancaria em ContaBancaria.js com atributo privado saldo (use convensão #saldo como privado).
 // Implemente os métodos depositar(valor), sacar(valor) e verSaldo().
 // No app.js, simule depósitos e saques.
 
