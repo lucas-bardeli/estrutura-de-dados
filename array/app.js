@@ -1,7 +1,7 @@
 
 const MeuArray = require("./MeuArray.js")
 
-// Exemplo de uso
+// Exemplo de implementação de arrays em JavaScript, sem o uso de funções nativas
 const meu_array = new MeuArray()
 
 meu_array.adicionar(10)
