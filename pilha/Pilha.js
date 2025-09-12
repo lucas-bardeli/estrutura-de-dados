@@ -34,4 +34,33 @@ class Pilha {
     // Retorna o item removido
     return ultimoItem;
   }
+
+  // Retorna o elemento do topo da pilha sem removê-lo
+  topo() {
+    // Se a pilha estiver vazia, retorna undefined
+    if (this.#tamanho === 0) {
+      return undefined;
+    }
+
+    // Retorna o item do topo
+    return this.#itens[this.#tamanho - 1];
+  }
+
+  // Limpa a pilha
+  limpar() {
+    // Reseta os itens
+    this.#itens = [];
+
+    // Reinicializa o tamanho
+    this.#tamanho = 0;
+  }
+
+  // Verifica se a pilha está vazia
+  // Verifica se o tamanho da pilha é zero com arrow function
+  estaVazia = () => this.#tamanho === 0;
+
+  // Retorna o número de elementos na pilha
+  tamanhoPilha = () => this.#tamanho;
 }
+
+module.exports = Pilha;
