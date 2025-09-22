@@ -103,7 +103,7 @@ class LinkedList {
       current = current.next;
     }
 
-    console.log(list + 'undefined');
+    console.log(`${list} undefined`);
   }
 }
 
