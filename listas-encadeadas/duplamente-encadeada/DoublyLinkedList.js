@@ -4,7 +4,7 @@ const Node = require("./Node.js");
 class DoublyLinkedList {
   #head = undefined; // Primeiro nó (cabeça)
   #tail = undefined; // Último nó (cauda)
-  #length = undefined; // Tamanho da lista
+  #length = 0; // Tamanho da lista
 
   // Adicionar um nó ao final da lista
   append(value) {
@@ -112,14 +112,15 @@ class DoublyLinkedList {
   insertAt(value, index) {
     if (index < 0 || index > this.#length) return undefined;
 
-    const newNode = new Node();
+    const newNode = new Node(value);
 
     if (index === 0) {
       this.prepend(value);
       return;
     }
-    else if (index === this.#length) {
+    if (index === this.#length) {
       this.append(value);
+      return;
     }
 
     let current = this.#head;
@@ -166,7 +167,7 @@ class DoublyLinkedList {
     let current = this.#head;
     let count = 0;
 
-    while (current) {
+    while (count < index) {
       current = current.next;
       count++;
     }
@@ -178,9 +179,11 @@ class DoublyLinkedList {
     return current.value;
   }
 
+  // Retorna o tamanho da lista
   size = () => this.#length;
 
-  isEmpty = () => this.#length === 0;
+  // Retorna true se a lista estiver vazia
+  isEmpty = () => this.#head === undefined;
 
   // Exibir a lista (opcional, para facilitar a visualização)
   toString() {
@@ -188,7 +191,7 @@ class DoublyLinkedList {
     let list = '';
 
     while (current !== undefined) {
-      list += `-> <- ${current.value} -> <- `;
+      list += ` <- ${current.value} -> `;
       current = current.next;
     }
 
