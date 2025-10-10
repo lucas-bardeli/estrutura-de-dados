@@ -17,7 +17,7 @@ class Fila {
     // Incrementa o índice do fim da fila
     this.#fim++;
 
-    console.table(this.#itens);
+    // console.table(this.#itens);
   }
 
   // Remove e retorna o primeiro elemento da fila (dequeue)
