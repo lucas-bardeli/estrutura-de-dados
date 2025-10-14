@@ -73,7 +73,72 @@ class BinaryTree {
 
   // Método para buscar um valor na árvore
   search(value) {
-    return this._searchNode
+    return this._searchNode(this.#root, value); // Inicia a busca a partir da raiz
+  }
+
+  // Método auxiliar para realizar a busca recursivamente
+  _searchNode(node, value) {
+    if (node === undefined) return false; // Se o nó atual é undefined, o valor não está na árvore
+
+    if (value === node.value) {
+      // Se o valor é encontrado retorna true
+      return true;
+    }
+    else if (value < node.value) {
+      // Se o valor procurado é menor, continua a busca na subárvore esquerda
+      return this._searchNode(node.left, value);
+    }
+    else {
+      // Se o valor procurado é maior, continua a busca na subárvore direita
+      return this._searchNode(node.right, value);
+    }
+  }
+  
+  // Método para remover um nó com o valor especificado
+  remove(value) {
+    this.#root = this._removeNode(this.#root, value); // Inicia a remoção a partir da raiz
+  }
+
+  // Método auxiliar para remover o nó recursivamente
+  _removeNode(node, value) {
+    if (node === undefined) return undefined; // Se o nó é undefined, não há nada para remover
+
+    if (value < node.value) {
+      // Se o valor a ser removido é menor, continua na subárvore esquerda
+      node.left = this._removeNode(node.left, value);
+      return node;
+    }
+    else if (value > node.value) {
+      // Se o valor a ser removido é maior, continua na subárvore direita
+      node.right = this._removeNode(node.right, value);
+      return node;
+    }
+    else {
+      // Se o valor é igual ao nó atual, este é o nó a ser removido
+
+      // Caso 1: Nó sem filhos (nó folha)
+      if (node.left === undefined && node.right === undefined) {
+        node = undefined; // Remove o nó ao definir como undefined
+        return node;
+      }
+
+      // Caso 2: Nó com um filho
+      if (node.left === undefined) {
+        node = node.right;
+        return node;
+      }
+      else if (node.right === undefined) {
+        node = node.left;
+        return node;
+      }
+
+      // Caso 3: Nó com dois filhos
+      // Encontra o nó com o menor valor na subárvore direita
+      const aux = this._findMinNode(node.right);
+      node.value = aux.value; // Substitui o valor do nó atual pelo valor mínimo encontrado
+      node.right = this._removeNode(node.right, aux.value); // Remove o nó duplicado na subárvore direita
+      return node;
+    }
   }
 
   // Método auxiliar para encontrar o nó com o menor valor
