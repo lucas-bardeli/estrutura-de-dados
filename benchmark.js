@@ -7,13 +7,15 @@
 // e) Organize os dados em uma planilha e apresente suas conclusões de qual melhor caso de uso para cada estrutura de dados
 
 // Importando as classes necessárias para o benchmark
-const BinaryTree = require("./BinaryTree.js");
-const LinkedList = require("../listas-encadeadas/lista-encadeada/LinkedList.js");
-const DoublyLinkedList = require("../listas-encadeadas/duplamente-encadeada/DoublyLinkedList.js");
-const Fila = require("../fila/Fila.js");
-const Pilha = require("../pilha/Pilha.js");
+const AVLTree = require("./arvores-binarias/arvore-avl/ALVTree.js");
+const BinaryTree = require("./arvores-binarias/arvore-binaria/BinaryTree.js");
+const LinkedList = require("./listas-encadeadas/lista-encadeada/LinkedList.js");
+const DoublyLinkedList = require("./listas-encadeadas/duplamente-encadeada/DoublyLinkedList.js");
+const Fila = require("./fila/Fila.js");
+const Pilha = require("./pilha/Pilha.js");
 
 // Instanciando as classes
+const avlTree = new AVLTree();
 const binaryTree = new BinaryTree();
 const linkedList = new LinkedList();
 const doublyLinkedList = new DoublyLinkedList();
@@ -28,7 +30,7 @@ function getRandomIntRange(min, max) {
 }
 
 // Tamanho do teste
-const size = 10000000;
+const size = 100000;
 
 
 // Testando a Fila
@@ -69,3 +71,10 @@ for (let i = 0; i < size; i++) {
   binaryTree.insert(getRandomIntRange(i, size));
 }
 console.timeEnd("Timer da BinaryTree");
+
+// Testando a AVLTree
+console.time("Timer da AVLTree");
+for (let i = 0; i < size; i++) {
+  avlTree.insert(getRandomIntRange(i, size));
+}
+console.timeEnd("Timer da AVLTree");
