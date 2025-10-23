@@ -35,11 +35,11 @@ class AVLTree {
   
   // Rotação simples à esquerda
   rotateLeft(x) {
-    const y = x.left;
-    const T2 = y.right;
+    const y = x.right;
+    const T2 = y.left;
 
-    y.right = x;
-    x.left = T2;
+    y.left = x;
+    x.right = T2;
 
     this.updateHeight(x);
     this.updateHeight(y);
@@ -72,12 +72,12 @@ class AVLTree {
     if (balance > 1 && value < node.left.value) {
       return this.rotateRight(node); // Esquerda-Esquerda
     }
-    if (balance > -1 && value > node.right.value) {
+    if (balance < -1 && value > node.right.value) {
       return this.rotateLeft(node); // Direita-Direita
     }
     if (balance > 1 && value > node.left.value) {
       node.left = this.rotateLeft(node.left);
-      return this.rotateLeft(node); // Esquerda-Direita
+      return this.rotateRight(node); // Esquerda-Direita
     }
     if (balance < -1 && value < node.right.value) {
       node.right = this.rotateRight(node.right);

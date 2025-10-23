@@ -32,17 +32,23 @@ function getRandomIntRange(min, max) {
 }
 
 // Tamanho do teste
-const size = 100000;
+const size = 10000000;
+const valor_para_busca = "Lucas Bardeli";
 
+console.log("Testes de inserções:")
+// Testando o MeuArray
+console.time("Timer do MeuArray");
+for (let i = 0; i < size; i++) {
+  meuArray.adicionar(getRandomIntRange(i, size));
+}
+console.timeEnd("Timer do MeuArray");
 
-// Teste de inserções
 // Testando a Fila
 console.time("Timer da Fila");
 for (let i = 0; i < size; i++) {
   fila.enqueue(getRandomIntRange(i, size));
 }
 console.timeEnd("Timer da Fila");
-
 
 // Testando a Pilha
 console.time("Timer da Pilha");
@@ -51,14 +57,12 @@ for (let i = 0; i < size; i++) {
 }
 console.timeEnd("Timer da Pilha");
 
-
 // Testando a LinkedList
 console.time("Timer da LinkedList");
 for (let i = 0; i < size; i++) {
-  linkedList.insertAtEnd(getRandomIntRange(i, size));
+  linkedList.insertAtBeginning(getRandomIntRange(i, size));
 }
 console.timeEnd("Timer da LinkedList");
-
 
 // Testando a DoublyLinkedList
 console.time("Timer da DoublyLinkedList");
@@ -66,7 +70,6 @@ for (let i = 0; i < size; i++) {
   doublyLinkedList.append(getRandomIntRange(i, size));
 }
 console.timeEnd("Timer da DoublyLinkedList");
-
 
 // Testando a BinaryTree
 console.time("Timer da BinaryTree");
