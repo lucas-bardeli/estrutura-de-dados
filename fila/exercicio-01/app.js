@@ -16,7 +16,7 @@ console.log(`Um cliente entrou na fila!`);
 clientes.enqueue(`Pietro`);
 console.log(`Um cliente entrou na fila!`);
 
-const atenderCliente= () => {
+const atenderCliente = () => {
   console.log(`${clientes.dequeue()} foi atendido!`)
 }
 

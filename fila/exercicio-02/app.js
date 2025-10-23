@@ -6,14 +6,19 @@
 // Desafio Extra:
 // Limite a capacidade da fila (ex: 5 documentos) e exiba uma mensagem quando a fila estiver cheia.
 
-const Documentos = require("./Documentos.js");
+const Impressora = require("./Impressora.js");
 
-const documentos = new Documentos();
+const impressora = new Impressora();
 
-documentos.enqueue({ nome: "slides.pdf", paginas: 23 });
-documentos.enqueue({ nome: "documentacao.docx", paginas: 20 });
-documentos.enqueue({ nome: "apresentacao.pptx", paginas: 15 });
-documentos.enqueue({ nome: "relatorio.pdf", paginas: 2 });
-documentos.enqueue({ nome: "folha-pagamento.pdf", paginas: 1 });
+impressora.enqueue({ nome: "slides.pdf", paginas: 23 });
+impressora.enqueue({ nome: "documentacao.docx", paginas: 20 });
+impressora.enqueue({ nome: "apresentacao.pptx", paginas: 15 });
+impressora.enqueue({ nome: "relatorio.pdf", paginas: 2 });
+impressora.enqueue({ nome: "folha-pagamento.pdf", paginas: 1 });
 
-documentos.enqueue({ nome: "boleto.pdf", paginas: 1 });
+impressora.enqueue({ nome: "boleto.pdf", paginas: 1 }); // A fila está lotada!
+console.log(impressora.tamanho()); // 5
+
+while (!impressora.estaVazia()) {
+  impressora.dequeue();
+}

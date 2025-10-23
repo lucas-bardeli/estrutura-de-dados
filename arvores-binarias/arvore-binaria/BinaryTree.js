@@ -3,12 +3,12 @@ const Node = require("./Node.js");
 
 // Classe BinaryTree para representar a árvore binária
 class BinaryTree {
-  #root = undefined; // Inicialmente, a árvore está vazia, então a raiz é undefined
+  #root = null; // Inicialmente, a árvore está vazia, então a raiz é null
 
   // Método para inserir um valor na árvore
   insert(value) {
     const newNode = new Node(value); // Cria um novo nó com o valor dado
-    if (this.#root === undefined) {
+    if (this.#root === null) {
       // Se a árvore estiver vazia, o novo nó se torna a raiz
       this.#root = newNode;
     }
@@ -22,7 +22,7 @@ class BinaryTree {
   _insertNode(node, newNode) {
     if (newNode.value < node.value) {
       // Se o valor do novo nó for menor que o valor do nó atual, vá para a subárvore esquerda
-      if (node.left === undefined) {
+      if (node.left === null) {
         // Se não houver nó à esquerda, insere o novo nó aqui
         node.left = newNode;
       }
@@ -33,7 +33,7 @@ class BinaryTree {
     }
     else {
       // Se o valor do novo nó for maior ou igual ao valor do nó atual, vá para a subárvore direita
-      if (node.right === undefined) {
+      if (node.right === null) {
         // Se não houver nó à direita, insere o novo nó aqui
         node.right = newNode;
       }
@@ -46,7 +46,7 @@ class BinaryTree {
 
   // Percurso em-ordem: visita a subárvore esquerda, o nó atual e a subárvore direita
   inOrder(node = this.#root) {
-    if (node !== undefined) {
+    if (node !== null) {
       this.inOrder(node.left); // Visita a subárvore esquerda
       console.log(node.value); // Visita o nó atual
       this.inOrder(node.right); // Visita a subárvore direita
@@ -55,7 +55,7 @@ class BinaryTree {
 
   // Percurso pré-ordem: visita o nó atual, a subárvore esquerda e a subárvore direita
   preOrder(node = this.#root) {
-    if (node !== undefined) {
+    if (node !== null) {
       console.log(node.value); // Visita o nó atual
       this.preOrder(node.left); // Visita a subárvore esquerda
       this.preOrder(node.right); // Visita a subárvore direita
@@ -64,9 +64,9 @@ class BinaryTree {
 
   // Percurso pós-ordem: visita a subárvore esquerda, a subárvore direita e o nó atual
   postOrder(node = this.#root) {
-    if (node !== undefined) {
-      this.preOrder(node.left); // Visita a subárvore esquerda
-      this.preOrder(node.right); // Visita a subárvore direita
+    if (node !== null) {
+      this.postOrder(node.left); // Visita a subárvore esquerda
+      this.postOrder(node.right); // Visita a subárvore direita
       console.log(node.value); // Visita o nó atual
     }
   }
@@ -78,7 +78,7 @@ class BinaryTree {
 
   // Método auxiliar para realizar a busca recursivamente
   _searchNode(node, value) {
-    if (node === undefined) return false; // Se o nó atual é undefined, o valor não está na árvore
+    if (node === null) return false; // Se o nó atual é null, o valor não está na árvore
 
     if (value === node.value) {
       // Se o valor é encontrado retorna true
@@ -101,7 +101,7 @@ class BinaryTree {
 
   // Método auxiliar para remover o nó recursivamente
   _removeNode(node, value) {
-    if (node === undefined) return undefined; // Se o nó é undefined, não há nada para remover
+    if (node === null) return null; // Se o nó é null, não há nada para remover
 
     if (value < node.value) {
       // Se o valor a ser removido é menor, continua na subárvore esquerda
@@ -117,17 +117,17 @@ class BinaryTree {
       // Se o valor é igual ao nó atual, este é o nó a ser removido
 
       // Caso 1: Nó sem filhos (nó folha)
-      if (node.left === undefined && node.right === undefined) {
-        node = undefined; // Remove o nó ao definir como undefined
+      if (node.left === null && node.right === null) {
+        node = null; // Remove o nó ao definir como null
         return node;
       }
 
       // Caso 2: Nó com um filho
-      if (node.left === undefined) {
+      if (node.left === null) {
         node = node.right;
         return node;
       }
-      else if (node.right === undefined) {
+      else if (node.right === null) {
         node = node.left;
         return node;
       }
@@ -143,7 +143,7 @@ class BinaryTree {
 
   // Método auxiliar para encontrar o nó com o menor valor
   _findMinNode(node) {
-    while (node.left !== undefined) {
+    while (node.left !== null) {
       // Continua indo para a esquerda até encontrar o menor valor
       node = node.left;
     }

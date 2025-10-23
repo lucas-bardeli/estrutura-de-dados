@@ -16,8 +16,6 @@ class Fila {
 
     // Incrementa o índice do fim da fila
     this.#fim++;
-
-    // console.table(this.#itens);
   }
 
   // Remove e retorna o primeiro elemento da fila (dequeue)
@@ -36,7 +34,6 @@ class Fila {
     // Move o índice do início para o próximo item
     this.#inicio++;
 
-    console.table(this.#itens);
     return item; // Retorna o item removido
   }
 

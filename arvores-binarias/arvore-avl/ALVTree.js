@@ -2,7 +2,7 @@
 const Node = require("./Node.js");
 
 class AVLTree {
-  #root = undefined;
+  #root = null;
 
   // Função utilitária para obter a altura de um nó
   getHeight(node) {
@@ -93,6 +93,29 @@ class AVLTree {
       this.inOrder(node.left);
       console.log(node.value);
       this.inOrder(node.right);
+    }
+  }
+
+  // Método para buscar um valor na árvore
+  search(value) {
+    return this._searchNode(this.#root, value); // Inicia a busca a partir da raiz
+  }
+
+  // Método auxiliar para realizar a busca recursivamente
+  _searchNode(node, value) {
+    if (node === null) return false; // Se o nó atual é null, o valor não está na árvore
+
+    if (value === node.value) {
+      // Se o valor é encontrado retorna true
+      return true;
+    }
+    else if (value < node.value) {
+      // Se o valor procurado é menor, continua a busca na subárvore esquerda
+      return this._searchNode(node.left, value);
+    }
+    else {
+      // Se o valor procurado é maior, continua a busca na subárvore direita
+      return this._searchNode(node.right, value);
     }
   }
 }

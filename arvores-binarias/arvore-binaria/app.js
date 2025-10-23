@@ -21,9 +21,10 @@ binaryTree.preOrder();
 console.log("\nPercurso pós-ordem:");
 binaryTree.postOrder();
 
-console.log("Busca valor 18:");
+console.log("\nBusca valor 18:");
 console.log(binaryTree.search(18) ? "Valor encontrado!" : "Valor não encontrado!")
 
-console.log("Remover valor 10:");
+console.log("\nRemover valor 10:");
 binaryTree.remove(10);
+console.log("Percurso em-ordem:");
 binaryTree.inOrder();

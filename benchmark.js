@@ -13,6 +13,7 @@ const LinkedList = require("./listas-encadeadas/lista-encadeada/LinkedList.js");
 const DoublyLinkedList = require("./listas-encadeadas/duplamente-encadeada/DoublyLinkedList.js");
 const Fila = require("./fila/Fila.js");
 const Pilha = require("./pilha/Pilha.js");
+const MeuArray = require("./array/MeuArray.js");
 
 // Instanciando as classes
 const avlTree = new AVLTree();
@@ -21,6 +22,7 @@ const linkedList = new LinkedList();
 const doublyLinkedList = new DoublyLinkedList();
 const fila = new Fila();
 const pilha = new Pilha();
+const meuArray = new MeuArray();
 
 // Função para gerar um número inteiro aleatório dentro de um intervalo
 function getRandomIntRange(min, max) {
@@ -33,6 +35,7 @@ function getRandomIntRange(min, max) {
 const size = 100000;
 
 
+// Teste de inserções
 // Testando a Fila
 console.time("Timer da Fila");
 for (let i = 0; i < size; i++) {
@@ -52,7 +55,7 @@ console.timeEnd("Timer da Pilha");
 // Testando a LinkedList
 console.time("Timer da LinkedList");
 for (let i = 0; i < size; i++) {
-  linkedList.insertAtBeginning(getRandomIntRange(i, size));
+  linkedList.insertAtEnd(getRandomIntRange(i, size));
 }
 console.timeEnd("Timer da LinkedList");
 

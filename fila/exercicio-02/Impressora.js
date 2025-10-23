@@ -1,13 +1,13 @@
 
-class Documentos {
+class Impressora {
   #documentos = [];
   #inicio = 0;
   #fim = 0;
 
   enqueue(documento) {
-    const tamanho = this.tamanho();
-    if (tamanho === 5) {
-      return "A fila está lotada!";
+    if (this.tamanho() === 5) {
+      console.log(`Não foi possível adicionar o documento ${documento.nome} pois a fila está lotada!`);
+      return;
     }
     
     this.#documentos[this.#fim] = documento;
@@ -19,9 +19,6 @@ class Documentos {
     if (this.estaVazia()) {
       return undefined;
     }
-    if (this.tamanho() === 5) {
-      return "A fila está lotada!";
-    }
 
     const documento = this.#documentos[this.#inicio];
 
@@ -29,11 +26,11 @@ class Documentos {
 
     this.#inicio++;
 
-    return documento;
+    console.log(`Imprimindo o documento ${documento.nome}...`);
   }
 
   estaVazia = () => this.#fim === this.#inicio;
   tamanho = () => this.#fim - this.#inicio;
 }
 
-module.exports = Documentos;
+module.exports = Impressora;
