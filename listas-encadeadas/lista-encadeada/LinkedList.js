@@ -75,16 +75,11 @@ class LinkedList {
 
     // Percorre a lista até encontrar o nó ou até o final
     while (current !== undefined) {
-      console.log(current.value);
-
-      if (current.value === value) {
-        return current; // Nó encontrado
-      }
-
+      if (current.value === value) return current; // Nó encontrado
       current = current.next;
     }
 
-    return undefined; // Se não encontrar, retorna null
+    return undefined; // Se não encontrar, retorna undefined
   }
 
   // Retorna o tamanho da lista
