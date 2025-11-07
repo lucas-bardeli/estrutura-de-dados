@@ -1,5 +1,5 @@
 
-// importando a class
+// importando a classe
 const Carro = require("./Carro.js")
 
 const meuCarro = new Carro("Fusca", 1970)
