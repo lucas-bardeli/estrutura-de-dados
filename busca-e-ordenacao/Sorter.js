@@ -63,7 +63,7 @@ class Sorter {
     let i = 0, j = 0;
 
     while (i < esquerda.length && j < direita.length) {
-      if (esquerda[i] < direita[i]) {
+      if (esquerda[i] < direita[j]) {
         resultado.push(esquerda[i++]);
       }
       else {
