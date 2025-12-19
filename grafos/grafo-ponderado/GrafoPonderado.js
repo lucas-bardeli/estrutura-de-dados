@@ -19,15 +19,17 @@ class GrafoPonderado {
   }
 
   // Adiciona uma aresta ponderada entre dois vértices.
-  // Crie os vértices caso ainda não existam. Por padrão, é um grafo direcionado.
-  adicionarAresta(origem, destino, peso) {
+  // Cria os vértices caso ainda não existam.
+  // Controla a aresta entre direcionada e não-direcionada por parâmetro, ou seja, o grafo pode ser misto.
+  adicionarAresta(origem, destino, peso, direcionada = true) {
     if (!this.#adjacencia.has(origem)) this.adicionarVertice(origem);
     if (!this.#adjacencia.has(destino)) this.adicionarVertice(destino);
 
     this.#adjacencia.get(origem).push({ vertice: destino, peso });
 
-    // Se o grafo for não-direcionado, descomente a linha abaixo:
-    // this.#adjacencia.get(origem).push({ vertice: destino, peso});
+    if (!direcionada) {
+      this.#adjacencia.get(destino).push({ vertice: origem, peso });
+    }
   }
 
   // Mostra a representação do grafo como lista de adjacência,

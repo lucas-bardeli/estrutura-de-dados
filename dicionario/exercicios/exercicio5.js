@@ -25,7 +25,3 @@ function contarPalavras(frase) {
 console.log(contarPalavras("O Rato roeu a roupa do Rei de Roma e o Rato fugiu"));
 console.log(contarPalavras("Não é fácil, não é simples, mas não é impossível!"));
 console.log(contarPalavras("A persistência leva ao sucesso e o sucesso exige persistência"));
-// Testes
-console.log(contarPalavras("")); // Enviando uma string vazia
-console.log(contarPalavras(0)); // Enviando um número
-console.log(contarPalavras()); // Enviando nada
