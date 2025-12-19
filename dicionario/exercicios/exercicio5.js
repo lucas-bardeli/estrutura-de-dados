@@ -4,18 +4,28 @@
 function contarPalavras(frase) {
   const mapa = new Map();
 
-  if (typeof frase !== "string") {
-    console.log("O valor enviado não é uma string!");
-    return {};
-  }
-  if (frase.length === 0) {
-    console.log("A string está vazia!");
-    return {};
+  if (typeof frase !== "string" || frase.length === 0) {
+    return mapa;
   }
 
-  const palavras = frase.split(" ");
+  const palavras = frase.toLowerCase().replace(/[^\w\sÀ-ú]/g, "").trim().split(/\s+/);
+
+  for (const palavra of palavras) {
+    if (mapa.has(palavra)) {
+      mapa.set(palavra, mapa.get(palavra) + 1);
+    }
+    else {
+      mapa.set(palavra, 1);
+    }
+  }
+
+  return mapa;
 }
 
-console.log(contarPalavras("Olá, Mundo!"));
-console.log(contarPalavras("Eu só sei que eu nada sei"));
-console.log(contarPalavras("A dona aranha subiu pela parede."));
+console.log(contarPalavras("O Rato roeu a roupa do Rei de Roma e o Rato fugiu"));
+console.log(contarPalavras("Não é fácil, não é simples, mas não é impossível!"));
+console.log(contarPalavras("A persistência leva ao sucesso e o sucesso exige persistência"));
+// Testes
+console.log(contarPalavras("")); // Enviando uma string vazia
+console.log(contarPalavras(0)); // Enviando um número
+console.log(contarPalavras()); // Enviando nada

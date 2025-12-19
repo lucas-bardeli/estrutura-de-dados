@@ -26,8 +26,10 @@ const produtos = {
   }
 };
 
-for (const codigo in produtos) {
-  if (produtos[codigo].preco > 50) {
-    console.log(`Produto: Código: ${codigo}; Nome: ${produtos[codigo].nome}; Preço: ${produtos[codigo].preco}`);
+console.log("Produtos acima de R$ 50:");
+
+Object.entries(produtos).forEach(([codigo, produto]) => {
+  if (produto.preco > 50) {
+    console.log(`Código: ${codigo}; Nome: ${produto.nome}; Preço: ${produto.preco.toFixed(2)}`);
   }
-}
+});
